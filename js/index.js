@@ -26,8 +26,9 @@
 //     document.querySelectorAll('.nav-link').forEach(e => e.style.backgroundColor ='teal');
 //       document.querySelectorAll('.nav-link').forEach(e => e.style.color ='yellow');
 //   })
-
-  const headerStyle = document.querySelector('.main-navigation')
+const bodyBack = document.querySelector('body')
+bodyBack.style.backgroundColor = "lightgreen"
+//   const headerStyle = document.querySelector('.main-navigation')
 
 // adds zoom feature to title image
 //   headerStyle.addEventListener('mouseenter', function(){
@@ -85,21 +86,35 @@ wheelText.forEach((element) => {
 })
 
 const mouseColor = document.querySelectorAll('.container p')
-    console.log(mouseColor)
     mouseColor.forEach((element)=>{
         element.addEventListener('mousedown', function(event){
-            console.log(element)
-            event.target.style.color = "green"
+            event.target.style.color = "yellow"
+            event.target.style.fontSize = "5rem"
+            event.target.style.backgroundColor = 'black'
             event.target.innerHTML = "RELEASE THE BUS!"
     })
-    mouseColor.forEach((element) => {
-        element.addEventListener('mouseup', function(event){
-            event.target.style.color = "blue"
-            event.target.innerHTML = 'helloo'
-        })
+})
+mouseColor.forEach((element) => {
+    element.addEventListener('mouseup', function(event){
+        event.target.style.color = "yellow"
+        event.target.innerHTML = 'YOU BROKE ME, RELOAD THE PAGE'
+    })
+})
+const bttmBtn =document.querySelectorAll('.btn')
+console.log(bttmBtn)
+    bttmBtn.forEach((element) =>{
+    element.addEventListener('dblclick', function(event){
+        event.target.innerHTML = 'Thank you!'  
+        event.target.style.backgroundColor ="blue"
+        event.target.style.color = "yellow"  
     })
 })
 
+document.addEventListener("keydown", function(event) {
+    if(event.key === "a") {
+        document.body.style.backgroundColor = "yellow"
+    }
+})
 
 // const bttmButtons = document.querySelector('.btn')
 // console.log(bttmButtons)
