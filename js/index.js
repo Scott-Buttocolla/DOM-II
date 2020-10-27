@@ -16,7 +16,6 @@
   //event.target.style.color = "purple"
 
   const linkColor = document.querySelectorAll('.nav a ');
-  console.log(linkColor)
   linkColor.forEach((element) => {
       element.addEventListener('click',function(event){
           element.style.color = "hotpink"
@@ -30,11 +29,10 @@
 
   const headerStyle = document.querySelector('.main-navigation')
 
-// headerStyle.style.transform = "backgroundColor (green)";
-
-  headerStyle.addEventListener('mouseenter', function(){
-      console.log('We have our Mouse' + Date.now())
-  })
+// adds zoom feature to title image
+//   headerStyle.addEventListener('mouseenter', function(){
+//       console.log('We have our Mouse' + Date.now())
+//   })
 // Below effects for Bus Image
 const busImg = document.querySelector('.intro img')
 
@@ -48,7 +46,6 @@ busImg.addEventListener('mouseleave', function(){
 
 //title elements
 const titlesH2 = document.querySelectorAll('.container h2')
-console.log(titlesH2)
 titlesH2.forEach((element)=> {
     element.addEventListener("mouseover", function(event){
         event.target.style.color = "yellow";
@@ -56,5 +53,55 @@ titlesH2.forEach((element)=> {
             event.target.style.color = "";
         }, 1000)
     }, false)
-
 })
+// adds effect to bottom image
+const bottomImg = document.querySelector('.content-destination img')
+bottomImg.addEventListener("mouseenter", function(){
+    bottomImg.style.transform ="scale(0.1)";
+    bottomImg.style.transition = "transform 1s"
+})
+bottomImg.addEventListener('mouseleave', function(){
+    bottomImg.style.transform = "scale(1)";
+})
+
+// using scroll. This will alert that the user has reached the bottom
+window.addEventListener('scroll', function(event){
+    const scrollable =document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    if(scrolled === scrollable){
+        alert('You reached the bottom')
+    }
+})
+
+const wheelText = document.querySelectorAll('.destination p')
+console.log(wheelText)
+wheelText.forEach((element) => {
+    element.addEventListener('wheel', function(event){
+        event.target.style.fontSize = "36px";
+        setTimeout(function(){
+            event.target.style = "";
+        },5000)
+    },false)
+})
+
+const mouseColor = document.querySelectorAll('.container p')
+    console.log(mouseColor)
+    mouseColor.forEach((element)=>{
+        element.addEventListener('mousedown', function(event){
+            console.log(element)
+            event.target.style.color = "green"
+            event.target.innerHTML = "RELEASE THE BUS!"
+    })
+    mouseColor.forEach((element) => {
+        element.addEventListener('mouseup', function(event){
+            event.target.style.color = "blue"
+            event.target.innerHTML = 'helloo'
+        })
+    })
+})
+
+
+// const bttmButtons = document.querySelector('.btn')
+// console.log(bttmButtons)
+// bttmButtons.addEventListener('focusin', (event) =>
+// event.target.style.backgroundColor ="green")
