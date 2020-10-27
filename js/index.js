@@ -40,6 +40,13 @@ const funBus =document.querySelector('.logo-heading')
         funBus.style.boxShadow ="3px 5px 5px 6px blue"
     })
 
+const letterInfo = document.createElement("p");
+letterInfo.textContent = "Try using the letters A, B, C, and G"
+document.querySelector(".logo-heading").appendChild(letterInfo);
+
+const clickInfo = document.createElement("p");
+clickInfo.textContent = "Try clicking and hovering over different items"
+document.querySelector(".home h2").appendChild(clickInfo);
 
 
 const bodyBack = document.querySelector('body')
@@ -85,36 +92,46 @@ window.addEventListener('scroll', function(event){
         alert('You reached the bottom')
     }
 })
-
+// added mouseenter for the destination titles
+const destTitles = document.querySelectorAll('.destination h4')
+console.log(destTitles)
+destTitles.forEach((element) => {
+    element.addEventListener('mouseenter', function(event){
+        event.target.style.fontSize = "36px"
+        event.target.style.textShadow = "2px 2px 3px white"
+    })
+})
+// increase text size off bottom text bodies
 const wheelText = document.querySelectorAll('.destination p')
 wheelText.forEach((element) => {
     element.addEventListener('wheel', function(event){
-        event.target.style.fontSize = "36px";
+        event.target.style.fontSize = "24px";
         setTimeout(function(){
             event.target.style = "";
         },5000)
     },false)
 })
-
+//selects all p tag selectors and changes the text, can't get mouseup to work.
 const mouseColor = document.querySelectorAll('.home p')
     mouseColor.forEach((element)=>{
         element.addEventListener('mousedown', function(event){
             event.target.style.color = "yellow";
-            event.target.style.fontSize = "5rem";
-            event.target.style.backgroundColor = 'black';
-            event.target.innerHTML = "RELEASE THE BUS!";
+            event.target.style.fontSize = "2rem";
+            event.target.style.backgroundImage = 'linear-gradient( green, blue, white, purple, pink, red';
+            // event.target.textContent = "RELEASE THE BUS!";
     })
 })
 mouseColor.forEach((element) => {
     element.addEventListener('mouseup', function(event){
-        event.target.style.color = "blue";
-        debugger;
-        event.target.innerText = 'YOU BROKE ME, RELOAD THE PAGE';
+        event.target.style.fontSize ="2.2rem";
+        event.target.style.color = "black";
+        //event.target.textContent = '';
         
     })
 })
 
 
+// adds new message when double clicked
 const bttmBtn =document.querySelectorAll('.btn')
     bttmBtn.forEach((element) =>{
     element.addEventListener('dblclick', function(event){
@@ -129,6 +146,25 @@ document.addEventListener("keydown", function(event) {
         document.body.style.backgroundColor = "yellow";
     }
 })
+document.addEventListener('keydown', function(event){
+    if(event.key === "b"){
+        document.body.style.backgroundColor = 'purple' //"linear-gradient( purple, red, blue, yellow, green"
+    }
+})
+
+// works to go back to a but doesn't effect b for some reason. b locks the background
+document.addEventListener('keydown', function(event){
+    if(event.key === "c"){
+        document.body.style.backgroundColor = "lightgreen"
+    }
+})
+
+document.addEventListener('keydown', function(event){
+    if(event.key === "g"){
+        document.body.style.backgroundImage = "linear-gradient( purple, red, blue, yellow, green"
+    }
+})
+
 
 // stop space bar from scolling with keydown
 document.addEventListener('keydown', function(event){
@@ -148,10 +184,13 @@ window.addEventListener("load", function(event){
 })
 
 
-
-
-
-
+// no clue why this does what it does. Blows up the footer text to huge porportions
+// window.addEventListener('wheel', function(e){
+//     console.log(`the wheel moved at X:${e.clientX} and Y:${e.clientY}`)
+//         const footer = document.querySelector('.footer p')
+//         console.log(footer)
+//         footer.style.fontSize = `${e.clientY}px`
+// })
 
 
 // const linkClick = document.querySelectorAll('.btn');
