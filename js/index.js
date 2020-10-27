@@ -20,20 +20,32 @@
       element.addEventListener('click',function(event){
           element.style.color = "hotpink"
           element.style.backgroundColor = "black";
+          element.style.fontSize ="2.5rem"
       })
   })
-//   linkColor.addEventListener('click', event =>{
-//     document.querySelectorAll('.nav-link').forEach(e => e.style.backgroundColor ='teal');
-//       document.querySelectorAll('.nav-link').forEach(e => e.style.color ='yellow');
-//   })
+//adds mouse over to header links
+const shadow = document.querySelectorAll('.nav a')
+shadow.forEach((element)=> {
+    element.addEventListener('mouseover', function(){
+        //element.addEventListener('boxShadow', function(){
+            element.style.boxShadow = "5px 10px 10px red"
+        //})
+    })
+})
+// adds click styling to funbus
+const funBus =document.querySelector('.logo-heading')
+    console.log(funBus)
+    funBus.addEventListener('click', function(){
+        funBus.style.transform = "scale(1.5)";
+        funBus.style.boxShadow ="3px 5px 5px 6px blue"
+    })
+
+
+
 const bodyBack = document.querySelector('body')
 bodyBack.style.backgroundColor = "lightgreen"
-//   const headerStyle = document.querySelector('.main-navigation')
 
-// adds zoom feature to title image
-//   headerStyle.addEventListener('mouseenter', function(){
-//       console.log('We have our Mouse' + Date.now())
-//   })
+
 // Below effects for Bus Image
 const busImg = document.querySelector('.intro img')
 
@@ -46,8 +58,8 @@ busImg.addEventListener('mouseleave', function(){
 })
 
 //title elements
-const titlesH2 = document.querySelectorAll('.container h2')
-titlesH2.forEach((element)=> {
+const titlesH2 = document.querySelectorAll('h2')
+titlesH2.forEach((element) => {
     element.addEventListener("mouseover", function(event){
         event.target.style.color = "yellow";
         setTimeout(function(){
@@ -75,7 +87,6 @@ window.addEventListener('scroll', function(event){
 })
 
 const wheelText = document.querySelectorAll('.destination p')
-console.log(wheelText)
 wheelText.forEach((element) => {
     element.addEventListener('wheel', function(event){
         event.target.style.fontSize = "36px";
@@ -85,38 +96,58 @@ wheelText.forEach((element) => {
     },false)
 })
 
-const mouseColor = document.querySelectorAll('.container p')
+const mouseColor = document.querySelectorAll('.home p')
     mouseColor.forEach((element)=>{
         element.addEventListener('mousedown', function(event){
-            event.target.style.color = "yellow"
-            event.target.style.fontSize = "5rem"
-            event.target.style.backgroundColor = 'black'
-            event.target.innerHTML = "RELEASE THE BUS!"
+            event.target.style.color = "yellow";
+            event.target.style.fontSize = "5rem";
+            event.target.style.backgroundColor = 'black';
+            event.target.innerHTML = "RELEASE THE BUS!";
     })
 })
 mouseColor.forEach((element) => {
     element.addEventListener('mouseup', function(event){
-        event.target.style.color = "yellow"
-        event.target.innerHTML = 'YOU BROKE ME, RELOAD THE PAGE'
+        element.innerHTML = 'p'
+        event.target.style.color = "blue";
+        debugger;
+        event.target.innerText = 'YOU BROKE ME, RELOAD THE PAGE';
+        
     })
 })
+
+
 const bttmBtn =document.querySelectorAll('.btn')
-console.log(bttmBtn)
     bttmBtn.forEach((element) =>{
     element.addEventListener('dblclick', function(event){
-        event.target.innerHTML = 'Thank you!'  
-        event.target.style.backgroundColor ="blue"
-        event.target.style.color = "yellow"  
+        event.target.innerHTML = 'Thank you!'; 
+        event.target.style.backgroundColor ="blue";
+        event.target.style.color = "yellow";  
     })
 })
 
 document.addEventListener("keydown", function(event) {
     if(event.key === "a") {
-        document.body.style.backgroundColor = "yellow"
+        document.body.style.backgroundColor = "yellow";
     }
 })
 
-// const bttmButtons = document.querySelector('.btn')
-// console.log(bttmButtons)
-// bttmButtons.addEventListener('focusin', (event) =>
-// event.target.style.backgroundColor ="green")
+
+
+
+
+
+
+
+
+
+// const linkClick = document.querySelectorAll('.btn');
+// console.log(linkClick)
+// linkClick.forEach((element) => {
+//     element.addEventListener('click', function(event){
+//         linkClick.innerHTML =`Click count : ${event.detail}`;
+//     })
+// })
+// const linkClick = document.querySelector('.btn');
+// linkClick.addEventListener('click',(event)=>{
+//     linkClick.innerHTML = `Click count : ${event.detail}`;
+// })
