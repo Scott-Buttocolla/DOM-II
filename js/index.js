@@ -15,12 +15,18 @@
   // highlight the mouseenter target
   //event.target.style.color = "purple"
 
-  const linkColor = document.querySelector('.nav-link ');
-  
-  linkColor.addEventListener('click', event =>{
-    document.querySelectorAll('.nav-link').forEach(e => e.style.backgroundColor ='teal');
-      document.querySelectorAll('.nav-link').forEach(e => e.style.color ='yellow');
+  const linkColor = document.querySelectorAll('.nav a ');
+  console.log(linkColor)
+  linkColor.forEach((element) => {
+      element.addEventListener('click',function(event){
+          element.style.color = "hotpink"
+          element.style.backgroundColor = "black";
+      })
   })
+//   linkColor.addEventListener('click', event =>{
+//     document.querySelectorAll('.nav-link').forEach(e => e.style.backgroundColor ='teal');
+//       document.querySelectorAll('.nav-link').forEach(e => e.style.color ='yellow');
+//   })
 
   const headerStyle = document.querySelector('.main-navigation')
 
@@ -43,3 +49,12 @@ busImg.addEventListener('mouseleave', function(){
 //title elements
 const titlesH2 = document.querySelectorAll('.container h2')
 console.log(titlesH2)
+titlesH2.forEach((element)=> {
+    element.addEventListener("mouseover", function(event){
+        event.target.style.color = "yellow";
+        setTimeout(function(){
+            event.target.style.color = "";
+        }, 1000)
+    }, false)
+
+})
