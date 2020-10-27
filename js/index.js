@@ -107,7 +107,6 @@ const mouseColor = document.querySelectorAll('.home p')
 })
 mouseColor.forEach((element) => {
     element.addEventListener('mouseup', function(event){
-        element.innerHTML = 'p'
         event.target.style.color = "blue";
         debugger;
         event.target.innerText = 'YOU BROKE ME, RELOAD THE PAGE';
@@ -131,7 +130,22 @@ document.addEventListener("keydown", function(event) {
     }
 })
 
+// stop space bar from scolling with keydown
+document.addEventListener('keydown', function(event){
+    event.preventDefault();
+    if (event.keycode === 32){}
+})
 
+// adds styling to header as wheel is used
+const navHeader = document.querySelector('.main-navigation');
+window.addEventListener('wheel', function(event){
+    navHeader.style.backgroundColor = 'lightblue';
+})
+
+//adds alert message when page is loaded
+window.addEventListener("load", function(event){
+    alert("The page has been loaded")
+})
 
 
 
